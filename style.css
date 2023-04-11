@@ -1,16 +1,18 @@
 * {
-	font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial,
-		sans-serif;
+	font-family: "Roboto", sans-serif;
 }
 
 body {
-	background-image: url(./beach-wallpaper.jpg);
+	background: url(./beach-wallpaper.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
 	background-size: cover;
-	background-repeat: no-repeat;
+	overflow: hidden;
 }
 
 .overlay {
-	background-color: rgba(0, 0, 0, 0.2);
+	background-color: rgba(0, 0, 0, 0.3);
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -23,4 +25,10 @@ body {
 	width: 860px;
 	margin: 0 auto;
 	text-align: center;
+	font-size: 64px;
+	z-index: 4;
+}
+
+.details {
+	font-size: 32px;
 }
