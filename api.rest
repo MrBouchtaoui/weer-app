@@ -1,0 +1,4 @@
+###
+GET https://api.open-meteo.com/v1/forecast?latitude=51.92&longitude=4.48&hourly=temperature_2m
+
+###

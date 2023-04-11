@@ -1,0 +1,26 @@
+* {
+	font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial,
+		sans-serif;
+}
+
+body {
+	background-image: url(./beach-wallpaper.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.overlay {
+	background-color: rgba(0, 0, 0, 0.2);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+}
+
+.container {
+	color: white;
+	width: 860px;
+	margin: 0 auto;
+	text-align: center;
+}
