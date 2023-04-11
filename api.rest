@@ -2,3 +2,7 @@
 GET https://api.open-meteo.com/v1/forecast?latitude=51.92&longitude=4.48&current_weather=true&forecast_days=1&start_date=2023-04-11&end_date=2023-04-12&timezone=Europe%2FBerlin
 
 ###
+GET https://api.open-meteo.com/v1/forecast?latitude=51.92&longitude=4.48&hourly=is_day&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset&current_weather=true&forecast_days=1&timezone=Europe%2FBerlin
+
+###
+GET https://geocode.maps.co/search?q=rotterdam
