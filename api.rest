@@ -6,3 +6,10 @@ GET https://api.open-meteo.com/v1/forecast?latitude=51.92&longitude=4.48&hourly=
 
 ###
 GET https://geocode.maps.co/search?q=rotterdam
+
+###
+GET https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&daily=sunrise,sunset,rain_sum,precipitation_probability_max&current_weather=true&forecast_days=1&timezone=Europe%2FBerlin
+
+###
+GET https://mbo-sd.nl/period3-fetch/games-pc-blizzard-entertainment
+
