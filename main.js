@@ -30,53 +30,8 @@ function handleWeather(data) {
 	console.log(weather);
 
 	details.innerHTML = `<p>${currentCity}</p>`;
-	details.innerHTML += `<p>Temperature ${weather.temperature}</p>`;
-	details.innerHTML += `<p>Time ${weather.time}</p>`;
-}
-
-// get visitor's location
-function getLocation() {
-	if (navigator.geolocation) {
-		navigator.geolocation.getCurrentPosition(showPosition, handleError);
-	} else {
-		console.error("Geolocation is not supported by this browser.");
-	}
-}
-
-// watch visitor's location
-//   function watchLocation() {
-// 	if (navigator.geolocation) {
-// 	  navigator.geolocation.watchPosition(showPosition, handleError);
-// 	} else {
-// 	  console.error("Geolocation is not supported by this browser.");
-// 	}
-//   }
-
-function handleError(error) {
-	let errorStr;
-	switch (error.code) {
-		case error.PERMISSION_DENIED:
-			errorStr = "User denied the request for Geolocation.";
-			break;
-		case error.POSITION_UNAVAILABLE:
-			errorStr = "Location information is unavailable.";
-			break;
-		case error.TIMEOUT:
-			errorStr = "The request to get user location timed out.";
-			break;
-		case error.UNKNOWN_ERROR:
-			errorStr = "An unknown error occurred.";
-			break;
-		default:
-			errorStr = "An unknown error occurred.";
-	}
-	console.error("Error occurred: " + errorStr);
-}
-
-function showPosition(position) {
-	console.log(`Latitude: ${position.coords.latitude}, longitude: ${position.coords.longitude}`);
-
-	getWeatherData(position.coords.latitude, position.coords.longitude);
+	details.innerHTML += `<div><span class="left">Temperature</span><span class="right">${weather.temperature} °C</span></div>`;
+	details.innerHTML += `<div><span class="left">Time</span><span class="right">${weather.time}</span></div>`;
 }
 
 function getGeoLocationFromCity(city) {
