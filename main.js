@@ -3,11 +3,13 @@ console.log("Weer App is running...");
 
 console.log("fetch is running...");
 
+let currentCity = "";
+
 window.addEventListener("load", function () {
 	console.log("loaded");
 
 	// getLocation();
-	getGeoLocationFromCity("Casablanca");
+	// getGeoLocationFromCity("Casablanca");
 });
 
 function getWeatherData(lat, lon) {
@@ -27,9 +29,9 @@ function handleWeather(data) {
 	const weather = data.current_weather;
 	console.log(weather);
 
-	details.innerHTML += `<p>Temperature ${weather.temperature}`;
-	details.innerHTML += `<p>Time ${weather.time}`;
-	// details.innerHTML += `<p>Temperature ${weather.temperature}`;
+	details.innerHTML = `<p>${currentCity}</p>`;
+	details.innerHTML += `<p>Temperature ${weather.temperature}</p>`;
+	details.innerHTML += `<p>Time ${weather.time}</p>`;
 }
 
 // get visitor's location
@@ -89,3 +91,13 @@ function getGeoLocationFromCity(city) {
 			getWeatherData(lat, lon);
 		});
 }
+
+const cityInput = document.querySelector("#city");
+cityInput.addEventListener("keyup", (e) => {
+	if (e.keyCode === 13) {
+		const city = cityInput.value;
+		currentCity = city;
+		getGeoLocationFromCity(city);
+		cityInput.value = "";
+	}
+});
