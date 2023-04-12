@@ -38,21 +38,21 @@ function handleWeather(data) {
 	const rainProb = daily.precipitation_probability_max[0];
 
 	details.innerHTML = `<p>${currentCity}</p>`;
-	details.innerHTML += `<div><span class="left">Temperatuur</span><span class="right">${temp} °C</span></div>`;
+	details.innerHTML += `<div><span class="left">Temperatuur</span><span class="right">${temp} °C <div class="wicon"><i class="wi wi-thermometer"></i></div></span></div>`;
 	details.innerHTML += `<div><span class="left">Datum/tijd</span><span class="right">${time.replace(
 		"T",
 		" "
-	)}</span></div>`;
+	)} <div class="wicon"><i class="wi wi-time-2"></i></div></span></div>`;
 	details.innerHTML += `<div><span class="left">Zonsopgang</span><span class="right">${sunrise.replace(
 		"T",
 		" "
-	)}</span></div>`;
+	)} <div class="wicon"><i class="wi wi-sunrise"></i></div></span></div>`;
 	details.innerHTML += `<div><span class="left">Zonsondergang</span><span class="right">${sunset.replace(
 		"T",
 		" "
-	)}</span></div>`;
-	details.innerHTML += `<div><span class="left">Regen</span><span class="right">${rain} mm</span></div>`;
-	details.innerHTML += `<div><span class="left">Kans op regen</span><span class="right">${rainProb} %</span></div>`;
+	)} <div class="wicon"><i class="wi wi-sunset"></i></div></span></div>`;
+	details.innerHTML += `<div><span class="left">Regen</span><span class="right">${rain} mm <div class="wicon"><i class="wi wi-showers"></i></div></span></div>`;
+	details.innerHTML += `<div><span class="left">Kans op regen</span><span class="right">${rainProb} % <div class="wicon"><i class="wi wi-humidity"></i></div></span></div>`;
 }
 
 function getGeoLocationFromCity(city) {

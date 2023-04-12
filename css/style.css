@@ -58,11 +58,17 @@ body {
 	border-radius: 4px;
 	padding: 4px;
 	font-weight: bold;
-	width: 160px;
+	width: 120px;
 }
 .details .right {
 	margin: 8px;
 	padding: 4px;
+}
+.details .wicon {
+	width: 24px;
+	display: inline-block;
+	text-align: center;
+	margin-left: 4px;
 }
 
 .city {
