@@ -14,7 +14,7 @@ window.addEventListener("load", function () {
 
 function getWeatherData(lat, lon) {
 	fetch(
-		`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=is_day&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset&current_weather=true&forecast_days=1&timezone=Europe%2FBerlin`
+		`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=sunrise,sunset,rain_sum,precipitation_probability_max&current_weather=true&forecast_days=1&timezone=Europe%2FBerlin`
 	)
 		.then((resp) => resp.json())
 		.then((data) => {
@@ -27,11 +27,32 @@ function getWeatherData(lat, lon) {
 function handleWeather(data) {
 	const details = document.querySelector(".details");
 	const weather = data.current_weather;
+	const daily = data.daily;
 	console.log(weather);
 
+	const temp = weather.temperature;
+	const time = weather.time.replace("T", " ");
+	const sunrise = daily.sunrise[0];
+	const sunset = daily.sunset[0];
+	const rain = daily.rain_sum[0];
+	const rainProb = daily.precipitation_probability_max[0];
+
 	details.innerHTML = `<p>${currentCity}</p>`;
-	details.innerHTML += `<div><span class="left">Temperature</span><span class="right">${weather.temperature} °C</span></div>`;
-	details.innerHTML += `<div><span class="left">Time</span><span class="right">${weather.time}</span></div>`;
+	details.innerHTML += `<div><span class="left">Temperatuur</span><span class="right">${temp} °C</span></div>`;
+	details.innerHTML += `<div><span class="left">Datum/tijd</span><span class="right">${time.replace(
+		"T",
+		" "
+	)}</span></div>`;
+	details.innerHTML += `<div><span class="left">Zonsopgang</span><span class="right">${sunrise.replace(
+		"T",
+		" "
+	)}</span></div>`;
+	details.innerHTML += `<div><span class="left">Zonsondergang</span><span class="right">${sunset.replace(
+		"T",
+		" "
+	)}</span></div>`;
+	details.innerHTML += `<div><span class="left">Regen</span><span class="right">${rain} mm</span></div>`;
+	details.innerHTML += `<div><span class="left">Kans op regen</span><span class="right">${rainProb} %</span></div>`;
 }
 
 function getGeoLocationFromCity(city) {

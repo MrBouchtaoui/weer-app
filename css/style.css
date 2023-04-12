@@ -31,7 +31,7 @@ body {
 
 .details {
 	width: 400px;
-	height: 300px;
+	height: 400px;
 	margin: 0 auto;
 	margin-top: 24px;
 	border-radius: 8px;
@@ -43,12 +43,10 @@ body {
 	display: flex;
 	width: 100%;
 	font-size: 16px;
-	padding-top: 4px;
-	padding-bottom: 4px;
 	align-items: center;
 	justify-content: space-between;
 }
-.details .p {
+.details p {
 	max-width: 100%;
 	display: inline-block;
 	text-align: center;
